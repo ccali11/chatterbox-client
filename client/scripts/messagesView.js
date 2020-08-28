@@ -8,8 +8,8 @@ var MessagesView = {
   render: function() {
   },
 
-  renderMessage: () => {
-
+  renderMessage: (mess) => {
+    $chats.html(mess);
   }
 
 };
