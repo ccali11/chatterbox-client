@@ -1,6 +1,6 @@
 var Parse = {
 
-  // NB: Probably just have to adjust CAMPUS to hrr48
+  // NB: Probably have to adjust CAMPUS to hrr48
   server: `http://parse.${window.CAMPUS}.hackreactor.com/chatterbox/classes/messages`,
 
   create: function(message, successCB, errorCB = null) {
