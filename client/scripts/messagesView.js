@@ -2,23 +2,26 @@ var MessagesView = {
 
   $chats: $('#chats'),
 
-  initialize: function() {
-    MessagesView.$chats.on('submit', MessagesView.renderMessage);
+  initialize: () => {
+    MessagesView.$chats.on('click', '.username', MessagesView.handleClick);
   },
 
-  render: function() {
-    _.each(Messages, (message) => {
-      var $message = MessageView.render(message);
-      MessagesView.$chats.prepend($message);
-    });
+  render: () => {
+    MessagesView.$chats.html('');
+    Messages
+      .items()
+      //.filter(message => Rooms.isSelected(message.roomname))
+      .each(message => MessagesView.renderMessage(message));
   },
 
-  renderMessage: (data) => {
-    MessagesView.$chats.append(MessageView.render(data));
-    // $.getJSON('/client/scripts/messages.js', function(data) {
-    //   var html = MessageView.render(data);
-    //   this.$chats.append(html);
-    // });
+  renderMessage: (message) => {
+    var $message = MessageView.render(message);
+    MessagesView.$chats.prepend($message);
+  },
+
+  handleClick: (event) => {
+    // Get username from data attribute
+    var username = $(event.target).data('username');
+    if (username === undefined) { return; }
   }
-
 };
