@@ -5,7 +5,7 @@ var MessageView = {
         <%-username %>
       </div>
       <div>
-
+        <div><%-text%></div>
       </div>
     </div>`
   )

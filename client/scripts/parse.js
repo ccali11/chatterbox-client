@@ -5,12 +5,12 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // todo: save a message to the server
-    // Copying and pasting in code from Learn
     $.ajax({
       // This is the url you should use to communicate with the parse API server.
       // NB: probably need to adjust CAMPUS to hrr48
       url: 'http://parse.CAMPUS.hackreactor.com/chatterbox/classes/messages',
       type: 'POST',
+      crossDomain: true,
       data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
@@ -21,7 +21,6 @@ var Parse = {
         console.error('chatterbox: Failed to send message', data);
       }
     });
-
   },
 
   readAll: function(successCB, errorCB = null) {
@@ -36,5 +35,4 @@ var Parse = {
       }
     });
   }
-
 };
