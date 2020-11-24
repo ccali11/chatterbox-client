@@ -22,7 +22,7 @@ var App = {
     Parse.readAll((data) => {
       if (!data.results || !data.results.length) { return; }
 
-      Rooms.update(data.results, RoomsView.render);
+      // Rooms.update(data.results, RoomsView.render);
       Messages.update(data.results, MessagesView.render);
 
       callback();

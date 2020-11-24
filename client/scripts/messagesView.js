@@ -1,5 +1,4 @@
 var MessagesView = {
-
   $chats: $('#chats'),
 
   initialize: () => {
@@ -14,14 +13,15 @@ var MessagesView = {
       .each(message => MessagesView.renderMessage(message));
   },
 
-  renderMessage: (message) => {
+  renderMessage: function(message) {
     var $message = MessageView.render(message);
     MessagesView.$chats.prepend($message);
   },
 
-  handleClick: (event) => {
-    // Get username from data attribute
+  handleClick: function(event) {
     var username = $(event.target).data('username');
     if (username === undefined) { return; }
+
+    //Friends.toggleStatus(username, MessagesView.render);
   }
 };
