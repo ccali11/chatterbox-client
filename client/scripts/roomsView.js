@@ -7,9 +7,16 @@ var RoomsView = {
   },
 
   render: function() {
+    render: _.template (
+      //<!--
+      `<select
+      </select>`
+      //-->
+    );
   },
 
-  renderRoom: () => {
-
+  renderRoom: (data) => {
+    debugger;
+    RoomsView.$select.append(RoomsView.render(data));
   }
 };
