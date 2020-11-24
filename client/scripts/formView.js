@@ -7,9 +7,19 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-    // Stop the browser from submitting the form
+    // Stop the browser from refreshing the page
     event.preventDefault();
-    
+    var message = {
+      room: 'lobby',
+      text: FormView.$form.find('#message').val(),
+      username: App.username
+    };
+
+    Parse.create(message, () => {
+      Messages = Messages.concat(message);
+      MessagesView.render();
+    });
+
     console.log('click!');
   },
 
