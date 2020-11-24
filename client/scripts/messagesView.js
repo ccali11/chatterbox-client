@@ -22,6 +22,6 @@ var MessagesView = {
     var username = $(event.target).data('username');
     if (username === undefined) { return; }
 
-    //Friends.toggleStatus(username, MessagesView.render);
+    Friends.toggleStatus(username, MessagesView.render);
   }
 };
