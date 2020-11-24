@@ -15,9 +15,9 @@ var FormView = {
       username: App.username
     };
 
-    Parse.create(message, () => {
-      Messages = Messages.concat(message);
-      MessagesView.render();
+    Parse.create(message, (data) => {
+      _.extend(message, data);
+      Messages.add(message, MessagesView.render);
     });
 
     console.log('click!');
