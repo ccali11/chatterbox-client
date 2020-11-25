@@ -1,6 +1,6 @@
 var App = {
   $spinner: $('.spinner img'),
-  username: 'anonymous',
+  username: '',
 
   initialize: () => {
     App.username = window.location.search.substr(10);
@@ -21,8 +21,7 @@ var App = {
   fetch: (callback = ()=>{}) => {
     Parse.readAll((data) => {
       if (!data.results || !data.results.length) { return; }
-
-      // Rooms.update(data.results, RoomsView.render);
+      Rooms.update(data.results, RoomsView.render);
       Messages.update(data.results, MessagesView.render);
 
       callback();
