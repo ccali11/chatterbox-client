@@ -13,12 +13,12 @@ var MessagesView = {
       .each(message => MessagesView.renderMessage(message));
   },
 
-  renderMessage: function(message) {
+  renderMessage: (message) => {
     var $message = MessageView.render(message);
     MessagesView.$chats.prepend($message);
   },
 
-  handleClick: function(event) {
+  handleClick: (event) => {
     var username = $(event.target).data('username');
     if (username === undefined) { return; }
 
