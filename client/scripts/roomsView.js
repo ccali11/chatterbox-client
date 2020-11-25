@@ -8,18 +8,17 @@ var RoomsView = {
     RoomsView.$button.on('click', RoomsView.handleClick);
   },
 
-  render: function() {
-    render: _.template (
-      //<!--
-      `<select
-      </select>`
-      //-->
-    );
+  render: () => {
+    RoomsView.$select.html('');
+    Rooms
+      .items()
+      .each(RoomsView.renderRoom);
+    RoomsView.$select.val(Rooms.selected);
   },
 
-  renderRoom: (data) => {
-    debugger;
-    RoomsView.$select.append(RoomsView.render(data));
+  renderRoom: (roomname) => {
+    var $option = $('<option>').val(roomname).text(roomname);
+    RoomsView.$select.append($option);
   },
 
   handleChange: (event) => {
